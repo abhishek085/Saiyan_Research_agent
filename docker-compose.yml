@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  searxng:
+    image: searxng/searxng
+    container_name: son-goku-searxng
+    ports:
+      - "8080:8080"
+    environment:
+      - BASE_URL=http://localhost:8080/
+      - INSTANCE_NAME=son-goku-search
+    volumes:
+      - searxng-data:/etc/searxng
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:8080"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  agent:
+    build: .
+    container_name: son-goku-agent
+    depends_on:
+      searxng:
+        condition: service_healthy
+    env_file:
+      - .env
+    volumes:
+      - ./credentials.json:/app/credentials.json
+      - ./token.pickle:/app/token.pickle
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # reach LM Studio on host
+    restart: unless-stopped
+
+volumes:
+  searxng-data:

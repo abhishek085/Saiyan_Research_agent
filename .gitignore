@@ -1,0 +1,30 @@
+.env
+.env.*
+!.env.example
+
+# Secrets and local auth artifacts
+credentials.json
+Credentials.json
+token.pickle
+
+# Python cache/build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Local environments
+.venv/
+.python-version
+
+# OS/editor noise
+.DS_Store
+
+# Local project tooling caches
+.gstack/
+.atv/
+.github/
+
+# Reasoning bank runtime data (gitkeep tracks the folder, not the data)
+data/reasoning_bank.json

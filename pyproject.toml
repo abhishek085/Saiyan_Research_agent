@@ -1,0 +1,17 @@
+[project]
+name = "saiyan-research-agent"
+version = "0.1.0"
+description = "Local-first Discord research assistant with a Son Goku persona"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "discord-py>=2.7.1",
+    "google-api-python-client>=2.194.0",
+    "google-auth-oauthlib>=1.3.1",
+    "notion-client>=3.0.0",
+    "openai>=2.32.0",
+    "python-dotenv>=1.2.2",
+    "requests>=2.33.1",
+    "yt-dlp>=2026.3.17",
+]
