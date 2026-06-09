@@ -28,7 +28,7 @@ import core.reasoning_bank as reasoning_bank
 # ─── CLIENTS ──────────────────────────────────────────────────────────────────
 
 lm = OpenAI(
-    base_url=os.getenv("LMSTUDIO_BASE_URL", "http://host.docker.internal:1234/v1"),
+    base_url=os.getenv("LMSTUDIO_BASE_URL", "http://localhost:11434/v1"),
     api_key=os.getenv("LMSTUDIO_API_KEY", "lm-studio")
 )
 MODEL = os.getenv("MODEL", "local-model")

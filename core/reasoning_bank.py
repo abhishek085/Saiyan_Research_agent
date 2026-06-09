@@ -229,7 +229,7 @@ def _judge(user_message: str, agent_response: str, tool_errors: list[str]) -> st
             model=os.getenv("MODEL", "local-model"),
             messages=[{"role": "user", "content": prompt}],
             temperature=0.0,
-            max_tokens=5,
+            max_tokens=512,
         )
         answer = (resp.choices[0].message.content or "").strip().upper()
         return "success" if answer.startswith("YES") else "failure"
@@ -301,7 +301,7 @@ def distill(
             model=os.getenv("MODEL", "local-model"),
             messages=[{"role": "user", "content": prompt}],
             temperature=0.3,
-            max_tokens=120,
+            max_tokens=512,
         )
         summary = (resp.choices[0].message.content or "").strip()
         if not summary:
