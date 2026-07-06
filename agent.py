@@ -163,6 +163,12 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
+# ─── Backwards-compat: re-export harness functions for tests/legacy callers ──
+
+from harness.harness import agent_loop_sync  # noqa: E402, F401
+from harness.harness import Agent  # noqa: E402, F401
+
+
 def main():
     discord_token = os.getenv("DISCORD_TOKEN")
     if not discord_token:
