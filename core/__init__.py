@@ -1,0 +1,1 @@
+"""Saiyan Research Agent — core engine."""
